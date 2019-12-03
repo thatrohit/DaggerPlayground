@@ -45,6 +45,6 @@ class TestSchedulers @Inject constructor(): BaseScheduler {
 
     @Provides
     override fun computation(): Scheduler =
-        TestScheduler()
+        Schedulers.trampoline()
 
 }

@@ -57,11 +57,4 @@ class MainViewModelTest {
             assert(it.size == 100)
         }
     }
-
-    @Test
-    fun getPost() {
-        vm.getPost(4, vm.sch.testScheduler()).observeForever {
-            assert(it is Post)
-        }
-    }
 }

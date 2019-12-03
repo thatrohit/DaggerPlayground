@@ -9,6 +9,8 @@ apply plugin: 'kotlin-kapt'
 ext {
     dagger= '2.25.2'
     retrofit = '2.6.2'
+    lifecycle_version = "2.1.0"
+    recyclerview_version = "1.1.0"
 }
 
 android {
@@ -53,9 +55,12 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
-
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    
     kapt "com.google.dagger:dagger-compiler:$dagger"
-    implementation "com.google.dagger:dagger:$dagger"
+    kapt "com.google.dagger:dagger-android-processor:$dagger"
+    implementation "com.google.dagger:dagger-android:$dagger"
+    implementation "com.google.dagger:dagger-android-support:$dagger"
 
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.15'
@@ -65,8 +70,15 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
 
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
     testImplementation 'junit:junit:4.12'
     testImplementation "io.mockk:mockk:1.9.3"
     testImplementation 'android.arch.core:core-testing:1.1.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    implementation "androidx.room:room-runtime:2.2.2"
+    kapt "androidx.room:room-compiler:2.2.2"
+    implementation "androidx.room:room-ktx:2.2.2"
 }
